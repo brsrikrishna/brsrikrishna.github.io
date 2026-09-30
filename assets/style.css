@@ -122,16 +122,21 @@ nav a[aria-current="page"]{ text-decoration-color:var(--ink); font-weight:600; }
 }
 .hero-meta .label:last-child{ color:var(--mute); margin-right:-0.22em; }
 
+/* The full name on ONE line, sized to the container. Measured in the browser:
+   "SRIKRISHNA BANGALORE RAGHU" at 600 weight, -0.025em tracking is 15.97x the
+   font size wide in Archivo and 16.20x in the Helvetica fallback, so dividing
+   the available width by 16.3 fits both with a little slack. The width term is
+   the viewport minus padding and scrollbar, capped at the container maximum. */
 h1.name{
-  font-size:clamp(2.5rem, 7.4vw, 6.5rem);
+  font-size:min(calc((100vw - 5rem) / 16.3), calc(1576px / 16.3));
   font-weight:600;
-  line-height:0.92;
+  line-height:1;
   letter-spacing:-0.025em;
   text-transform:uppercase;
+  white-space:nowrap;
   padding-block:clamp(1.25rem, 3vw, 2.25rem) clamp(1rem, 2.5vw, 1.75rem);
-  overflow-wrap:break-word;
 }
-h1.name .l{ display:block; }
+h1.name .l{ display:inline; }
 
 /* a row = small-caps label above full-width content, on a hairline */
 .row{
@@ -181,13 +186,6 @@ h1.name .l{ display:block; }
   aspect-ratio:3 / 4;
   object-fit:cover;
 }
-.portrait figcaption{
-  margin-top:0.55rem;
-  font-size:0.6875rem; text-transform:uppercase; letter-spacing:0.18em;
-  color:var(--meta);
-  display:flex; justify-content:space-between; gap:1rem;
-}
-.portrait figcaption span:last-child{ margin-right:-0.18em; }
 
 .exp-list{ list-style:none; }
 .exp-list li{
@@ -281,14 +279,14 @@ h1.name .l{ display:block; }
 .project .venue .note{ color:var(--meta); }
 .project .desc{
   grid-area:desc;
-  font-size:0.9375rem; color:var(--mute);
-  columns:2; column-gap:2.5rem;
+  font-size:1rem; color:var(--mute);
 }
 .project .chips{ grid-area:chips; align-self:start; margin-top:0.9rem; }
 .project .gallery{ grid-area:gallery; }
 
-/* gallery: full container width, tiles as large as the row allows;
-   posters load, video bytes only when a clip is played */
+/* gallery: full container width, tiles as large as the row allows.
+   Clips autoplay muted and loop. A small script pauses the ones that are
+   scrolled out of view so only the visible rows decode. */
 .gallery{
   margin-top:1.25rem;
   display:grid;
@@ -416,10 +414,6 @@ h1.name .l{ display:block; }
 /* ============================================================
    RESPONSIVE
    ============================================================ */
-@media (max-width: 1100px){
-  .project .desc{ columns:1; }
-}
-
 @media (max-width: 900px){
   .about-grid{ grid-template-columns:minmax(0, 1fr) clamp(180px, 30%, 260px); gap:1.25rem 2rem; }
   .bio{ columns:1; }
@@ -453,6 +447,12 @@ h1.name .l{ display:block; }
   .gallery, .gallery[data-cols="3"]{
     grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); gap:0.8rem;
   }
+}
+
+@media (max-width: 480px){
+  /* one line would be under 20px on a phone, so let the name wrap here */
+  h1.name{ white-space:normal; font-size:clamp(1.9rem, 9.5vw, 2.6rem); line-height:0.95; }
+  h1.name .l{ display:block; }
 }
 
 @media (max-width: 430px){
