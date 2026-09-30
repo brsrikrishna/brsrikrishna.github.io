@@ -181,38 +181,237 @@
         <h2>Research</h2>
       </div>
       <div class="sec-body">
-        <div class="areas">
-          <article class="area">
-            <span class="idx" aria-hidden="true">02.1</span>
-            <h3>Human–Robot Interaction</h3>
-            <p>
-              I study hesitancy in robot motion: how a manipulator can move so a person can
-              tell it is unsure, and how that motion is perceived. This spans the dancer-taught
-              Dance2Hesitate dataset, an in-person perception study with 33 participants, and
-              expressive trajectories generated with Laban Movement Analysis.
-            </p>
-          </article>
-          <article class="area">
-            <span class="idx" aria-hidden="true">02.2</span>
-            <h3>Motion Planning</h3>
-            <p>
-              I build sampling-based kinodynamic planners for systems where dynamics, not just
-              geometry, decide what is reachable. BBoE searches bidirectionally over a bundle of
-              precomputed edges, producing solutions 1.5&times; faster than state-of-the-art
-              planners in cluttered environments.
-            </p>
-          </article>
-          <article class="area">
-            <span class="idx" aria-hidden="true">02.3</span>
-            <h3>Generative Models for Robotics</h3>
-            <p>
-              I train a hesitancy-conditioned diffusion model in PyTorch that generates real
-              Franka Emika Panda trajectories at a commanded level of hesitancy. Transformer and
-              LSTM decoders handle the inverse problem, classifying hesitancy intensity from
-              motion at 0.76 leave-one-dancer-out on unseen performers.
-            </p>
-          </article>
-        </div>
+        <article class="project">
+          <span class="idx" aria-hidden="true">02.1</span>
+          <h3>What makes Robot Motion Hesitant? Producing and Perceiving Hesitancy in Robotic Manipulators</h3>
+          <p class="venue">ACM/IEEE International Conference on Human-Robot Interaction (HRI) · 2027 <span class="note">— Under review</span></p>
+          <p class="desc">
+            Eleven trained dancers kinesthetically taught a manipulator 66 free-form reaching
+            trajectories at three commanded levels of hesitancy — slight, significant, and extreme.
+            Characterizing them across geometry, timing, smoothness, and amplitude shows that higher
+            hesitancy is produced as a longer, more circuitous reach with more retreats. A model
+            decodes the commanded level at &kappa;&nbsp;=&nbsp;0.76 under leave-dancers-out validation,
+            and an in-person study with 33 unprimed observers finds that the degree of hesitancy is
+            carried chiefly by elapsed time — dancers travelling further, not slowing down.
+          </p>
+          <div class="chips">
+            <a class="chip" href="assets/papers/hesitancy-hri-2027.pdf" aria-label="PDF — What makes Robot Motion Hesitant">PDF</a>
+          </div>
+          <div class="gallery">
+            <figure class="clip">
+              <video controls preload="none" muted loop playsinline poster="assets/media/hri2027/reference.jpg" aria-label="Reference reach, no hesitancy">
+                <source src="assets/media/hri2027/reference.mp4" type="video/mp4">
+              </video>
+              <figcaption>Reference</figcaption>
+            </figure>
+            <figure class="clip">
+              <video controls preload="none" muted loop playsinline poster="assets/media/hri2027/slight.jpg" aria-label="Slight hesitancy">
+                <source src="assets/media/hri2027/slight.mp4" type="video/mp4">
+              </video>
+              <figcaption>Slight hesitancy</figcaption>
+            </figure>
+            <figure class="clip">
+              <video controls preload="none" muted loop playsinline poster="assets/media/hri2027/significant.jpg" aria-label="Significant hesitancy">
+                <source src="assets/media/hri2027/significant.mp4" type="video/mp4">
+              </video>
+              <figcaption>Significant hesitancy</figcaption>
+            </figure>
+            <figure class="clip">
+              <video controls preload="none" muted loop playsinline poster="assets/media/hri2027/extreme.jpg" aria-label="Extreme hesitancy">
+                <source src="assets/media/hri2027/extreme.mp4" type="video/mp4">
+              </video>
+              <figcaption>Extreme hesitancy</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="project">
+          <span class="idx" aria-hidden="true">02.2</span>
+          <h3>Dance2Hesitate: A Multi-Modal Dataset of Dancer-Taught Hesitancy for Understandable Robot Motion</h3>
+          <p class="venue">Designing Transparent and Understandable Robots (D-TUR) Workshop at HRI · 2026</p>
+          <p class="desc">
+            An open-source, multi-modal dataset of dancer-generated hesitant motion: 66
+            kinesthetic-teaching demonstrations on a Franka Emika Panda reaching toward a Jenga
+            tower at three graded hesitancy levels, plus synchronized RGB-D motion capture of 84
+            upper-limb and 70 whole-body dancer trajectories.
+          </p>
+          <div class="chips">
+            <a class="chip" href="assets/papers/dance2hesitate-dtur-hri-2026.pdf" aria-label="PDF — Dance2Hesitate">PDF</a>
+            <a class="chip" href="https://brsrikrishna.github.io/Dance2Hesitate/" aria-label="Project page — Dance2Hesitate">Project</a>
+            <a class="chip" href="https://huggingface.co/datasets/brsrikrishna/Dance2Hesitate" aria-label="Dataset on Hugging Face — Dance2Hesitate">Data</a>
+          </div>
+          <div class="gallery" data-ratio="4-3">
+            <figure class="clip">
+              <video controls preload="none" muted loop playsinline poster="assets/media/dance2hesitate/whole-body-front.jpg" aria-label="Whole-body hesitant motion, front view">
+                <source src="assets/media/dance2hesitate/whole-body-front.mp4" type="video/mp4">
+              </video>
+              <figcaption>Whole body, front</figcaption>
+            </figure>
+            <figure class="clip">
+              <video controls preload="none" muted loop playsinline poster="assets/media/dance2hesitate/whole-body-side.jpg" aria-label="Whole-body hesitant motion, side view">
+                <source src="assets/media/dance2hesitate/whole-body-side.mp4" type="video/mp4">
+              </video>
+              <figcaption>Whole body, side</figcaption>
+            </figure>
+            <figure class="clip">
+              <video controls preload="none" muted loop playsinline poster="assets/media/dance2hesitate/limb-slight-front.jpg" aria-label="Upper limb, slight hesitancy, front view">
+                <source src="assets/media/dance2hesitate/limb-slight-front.mp4" type="video/mp4">
+              </video>
+              <figcaption>Limb, slight, front</figcaption>
+            </figure>
+            <figure class="clip">
+              <video controls preload="none" muted loop playsinline poster="assets/media/dance2hesitate/limb-slight-side.jpg" aria-label="Upper limb, slight hesitancy, side view">
+                <source src="assets/media/dance2hesitate/limb-slight-side.mp4" type="video/mp4">
+              </video>
+              <figcaption>Limb, slight, side</figcaption>
+            </figure>
+            <figure class="clip">
+              <video controls preload="none" muted loop playsinline poster="assets/media/dance2hesitate/limb-significant-front.jpg" aria-label="Upper limb, significant hesitancy, front view">
+                <source src="assets/media/dance2hesitate/limb-significant-front.mp4" type="video/mp4">
+              </video>
+              <figcaption>Limb, significant, front</figcaption>
+            </figure>
+            <figure class="clip">
+              <video controls preload="none" muted loop playsinline poster="assets/media/dance2hesitate/limb-significant-side.jpg" aria-label="Upper limb, significant hesitancy, side view">
+                <source src="assets/media/dance2hesitate/limb-significant-side.mp4" type="video/mp4">
+              </video>
+              <figcaption>Limb, significant, side</figcaption>
+            </figure>
+            <figure class="clip">
+              <video controls preload="none" muted loop playsinline poster="assets/media/dance2hesitate/limb-extreme-front.jpg" aria-label="Upper limb, extreme hesitancy, front view">
+                <source src="assets/media/dance2hesitate/limb-extreme-front.mp4" type="video/mp4">
+              </video>
+              <figcaption>Limb, extreme, front</figcaption>
+            </figure>
+            <figure class="clip">
+              <video controls preload="none" muted loop playsinline poster="assets/media/dance2hesitate/limb-extreme-side.jpg" aria-label="Upper limb, extreme hesitancy, side view">
+                <source src="assets/media/dance2hesitate/limb-extreme-side.mp4" type="video/mp4">
+              </video>
+              <figcaption>Limb, extreme, side</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="project">
+          <span class="idx" aria-hidden="true">02.3</span>
+          <h3>Employing Laban Shape for Generating Emotionally and Functionally Expressive Trajectories in Robotic Manipulators</h3>
+          <p class="venue">IEEE International Conference on Robot and Human Interactive Communication (RO-MAN) · 2025</p>
+          <p class="desc">
+            Uses Laban notation to give manipulators functional expressivity: two new variants of
+            hesitant motion, spoke-like and arc-like, that participants associate with reduced robot
+            competency, and Happy, Sad, Shy, and Angry trajectories enhanced with Laban Shape that
+            read as distinct emotions on the valence–arousal–dominance spectrum.
+          </p>
+          <div class="chips">
+            <a class="chip" href="assets/papers/laban-shape-roman-2025.pdf" aria-label="PDF — Employing Laban Shape">PDF</a>
+            <a class="chip" href="https://arxiv.org/abs/2505.11716" aria-label="arXiv — Employing Laban Shape">arXiv</a>
+            <a class="chip" href="https://brsrikrishna.github.io/ROMAN_25/" aria-label="Project page — Employing Laban Shape">Project</a>
+          </div>
+          <div class="gallery">
+            <figure class="clip">
+              <video controls preload="none" muted loop playsinline poster="assets/media/roman2025/hesitant-spoke.jpg" aria-label="Hesitant motion, spoke-like variant">
+                <source src="assets/media/roman2025/hesitant-spoke.mp4" type="video/mp4">
+              </video>
+              <figcaption>Hesitant (spoke)</figcaption>
+            </figure>
+            <figure class="clip">
+              <video controls preload="none" muted loop playsinline poster="assets/media/roman2025/hesitant-arc.jpg" aria-label="Hesitant motion, arc-like variant">
+                <source src="assets/media/roman2025/hesitant-arc.mp4" type="video/mp4">
+              </video>
+              <figcaption>Hesitant (arc)</figcaption>
+            </figure>
+            <figure class="clip">
+              <video controls preload="none" muted loop playsinline poster="assets/media/roman2025/happy.jpg" aria-label="Happy trajectory">
+                <source src="assets/media/roman2025/happy.mp4" type="video/mp4">
+              </video>
+              <figcaption>Happy</figcaption>
+            </figure>
+            <figure class="clip">
+              <video controls preload="none" muted loop playsinline poster="assets/media/roman2025/sad.jpg" aria-label="Sad trajectory">
+                <source src="assets/media/roman2025/sad.mp4" type="video/mp4">
+              </video>
+              <figcaption>Sad</figcaption>
+            </figure>
+            <figure class="clip">
+              <video controls preload="none" muted loop playsinline poster="assets/media/roman2025/shy.jpg" aria-label="Shy trajectory">
+                <source src="assets/media/roman2025/shy.mp4" type="video/mp4">
+              </video>
+              <figcaption>Shy</figcaption>
+            </figure>
+            <figure class="clip">
+              <video controls preload="none" muted loop playsinline poster="assets/media/roman2025/angry.jpg" aria-label="Angry trajectory">
+                <source src="assets/media/roman2025/angry.mp4" type="video/mp4">
+              </video>
+              <figcaption>Angry</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="project">
+          <span class="idx" aria-hidden="true">02.4</span>
+          <h3>BBoE: Leveraging a Bundle of Edges for Kinodynamic Bidirectional Motion Planning</h3>
+          <p class="venue">IEEE Robotics and Automation Letters (RA-L) · 2026 <span class="note">— Under review</span></p>
+          <p class="desc">
+            A bidirectional, kinodynamic, sampling-based planner that reuses a precomputed bundle
+            of robot motions to converge quickly in cluttered environments. Across four systems
+            spanning 3D to 6D state spaces, BBoE is the only planner to reach &ge;96% success on
+            every system, with the lowest planning time on three of the four.
+          </p>
+          <div class="chips">
+            <a class="chip" href="assets/papers/bboe-ral-2026.pdf" aria-label="PDF — BBoE">PDF</a>
+            <a class="chip" href="https://arxiv.org/abs/2509.20333" aria-label="arXiv — BBoE">arXiv</a>
+          </div>
+          <div class="gallery" data-ratio="1">
+            <figure class="clip">
+              <video controls preload="none" muted loop playsinline poster="assets/media/bboe/full-run.jpg" aria-label="Full BBoE planning run">
+                <source src="assets/media/bboe/full-run.mp4" type="video/mp4">
+              </video>
+              <figcaption>Full planning run</figcaption>
+            </figure>
+            <figure class="clip">
+              <video controls preload="none" muted loop playsinline poster="assets/media/bboe/unicycle-easy.jpg" aria-label="Unicycle, easy environment">
+                <source src="assets/media/bboe/unicycle-easy.mp4" type="video/mp4">
+              </video>
+              <figcaption>Unicycle, easy</figcaption>
+            </figure>
+            <figure class="clip">
+              <video controls preload="none" muted loop playsinline poster="assets/media/bboe/unicycle-medium.jpg" aria-label="Unicycle, medium environment">
+                <source src="assets/media/bboe/unicycle-medium.mp4" type="video/mp4">
+              </video>
+              <figcaption>Unicycle, medium</figcaption>
+            </figure>
+            <figure class="clip">
+              <video controls preload="none" muted loop playsinline poster="assets/media/bboe/unicycle-hard.jpg" aria-label="Unicycle, hard environment">
+                <source src="assets/media/bboe/unicycle-hard.mp4" type="video/mp4">
+              </video>
+              <figcaption>Unicycle, hard</figcaption>
+            </figure>
+            <figure class="clip">
+              <video controls preload="none" muted loop playsinline poster="assets/media/bboe/unicycle-very-hard.jpg" aria-label="Unicycle, very hard environment">
+                <source src="assets/media/bboe/unicycle-very-hard.mp4" type="video/mp4">
+              </video>
+              <figcaption>Unicycle, very hard</figcaption>
+            </figure>
+            <figure class="clip">
+              <video controls preload="none" muted loop playsinline poster="assets/media/bboe/quadrotor.jpg" aria-label="Quadrotor">
+                <source src="assets/media/bboe/quadrotor.mp4" type="video/mp4">
+              </video>
+              <figcaption>Quadrotor</figcaption>
+            </figure>
+            <figure class="clip">
+              <video controls preload="none" muted loop playsinline poster="assets/media/bboe/treaded.jpg" aria-label="Treaded vehicle">
+                <source src="assets/media/bboe/treaded.mp4" type="video/mp4">
+              </video>
+              <figcaption>Treaded vehicle</figcaption>
+            </figure>
+            <figure class="clip">
+              <video controls preload="none" muted loop playsinline poster="assets/media/bboe/car-with-trailer.jpg" aria-label="Car with trailer">
+                <source src="assets/media/bboe/car-with-trailer.mp4" type="video/mp4">
+              </video>
+              <figcaption>Car with trailer</figcaption>
+            </figure>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -232,6 +431,9 @@
               <p class="authors"><span class="me">S. Bangalore Raghu</span>, A.&nbsp;Soukhovei, D.&nbsp;Vankineni, and A.&nbsp;Roncone</p>
               <p class="venue">ACM/IEEE International Conference on Human-Robot Interaction (HRI) · 2027 <span class="note">— Under review</span></p>
               <p class="tldr">Characterizes what makes manipulator motion read as hesitant, covering both the production of hesitant motion and how people perceive it.</p>
+              <div class="chips">
+                <a class="chip" href="assets/papers/hesitancy-hri-2027.pdf" aria-label="PDF — What makes Robot Motion Hesitant">PDF</a>
+              </div>
             </div>
           </li>
           <li class="pub">
@@ -241,6 +443,7 @@
               <p class="venue">Designing Transparent and Understandable Robots (D-TUR) Workshop at HRI · 2026</p>
               <p class="tldr">Releases a 220-trajectory multimodal dataset of hesitant motion, taught to a Franka Panda by dancers through kinesthetic teaching and recorded as synchronized 30&nbsp;Hz robot-state streams.</p>
               <div class="chips">
+                <a class="chip" href="assets/papers/dance2hesitate-dtur-hri-2026.pdf" aria-label="PDF — Dance2Hesitate">PDF</a>
                 <a class="chip" href="https://brsrikrishna.github.io/Dance2Hesitate/" aria-label="Project page — Dance2Hesitate">Project</a>
                 <a class="chip" href="https://huggingface.co/datasets/brsrikrishna/Dance2Hesitate" aria-label="Dataset on Hugging Face — Dance2Hesitate">Data</a>
               </div>
@@ -253,7 +456,8 @@
               <p class="venue">IEEE International Conference on Robot and Human Interactive Communication (RO-MAN) · 2025</p>
               <p class="tldr">Uses Laban Movement Analysis to generate emotionally and functionally expressive manipulator trajectories; human trials supported two of three hypotheses.</p>
               <div class="chips">
-                <a class="chip" href="https://arxiv.org/abs/2505.11716" aria-label="PDF — Employing Laban Shape">PDF</a>
+                <a class="chip" href="assets/papers/laban-shape-roman-2025.pdf" aria-label="PDF — Employing Laban Shape">PDF</a>
+                <a class="chip" href="https://arxiv.org/abs/2505.11716" aria-label="arXiv — Employing Laban Shape">arXiv</a>
                 <a class="chip" href="https://brsrikrishna.github.io/ROMAN_25/" aria-label="Project page — Employing Laban Shape">Project</a>
               </div>
             </div>
@@ -265,7 +469,8 @@
               <p class="venue">IEEE Robotics and Automation Letters (RA-L) · 2026 <span class="note">— Under review</span></p>
               <p class="tldr">Introduces BBoE, a bidirectional kinodynamic planner that leverages a bundle of edges to reach solutions 1.5&times; faster than state-of-the-art planners in cluttered environments.</p>
               <div class="chips">
-                <a class="chip" href="https://arxiv.org/abs/2509.20333" aria-label="PDF — BBoE">PDF</a>
+                <a class="chip" href="assets/papers/bboe-ral-2026.pdf" aria-label="PDF — BBoE">PDF</a>
+                <a class="chip" href="https://arxiv.org/abs/2509.20333" aria-label="arXiv — BBoE">arXiv</a>
               </div>
             </div>
           </li>

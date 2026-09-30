@@ -272,29 +272,52 @@ h1 .l + .l{
 .news-list p{ max-width:62ch; }
 .news-list .hl{ font-weight:600; }
 
-/* ---------- research ---------- */
-.areas{
-  display:grid;
-  grid-template-columns:repeat(3, 1fr);
-  column-gap:var(--col-gap);
-  row-gap:3rem;
-  padding-top:2rem;
-}
-.area{ border-top:2px solid var(--ink); padding-top:1.1rem; }
-.area .idx{
+/* ---------- selected work: one block per first-author paper, with media ---------- */
+.project{ padding-block:2rem 2.4rem; border-bottom:1px solid var(--rule-soft); }
+.project:last-child{ border-bottom:0; }
+.project .idx{
   display:block;
   font-size:0.6875rem; font-weight:500; letter-spacing:0.14em;
   font-variant-numeric:tabular-nums;
   color:var(--meta);
-  margin-bottom:2.25rem;
+  margin-bottom:0.9rem;
 }
-.area h3{
+.project h3{
   font-size:var(--size-mid);
-  font-weight:600; line-height:1.25;
-  letter-spacing:-0.01em;
-  margin-bottom:0.8rem;
+  font-weight:600; line-height:1.35; letter-spacing:-0.01em;
+  max-width:34em;
 }
-.area p{ font-size:0.9375rem; color:var(--mute); max-width:38ch; }
+.project .venue{
+  margin-top:0.45rem;
+  font-size:0.6875rem; font-weight:500;
+  text-transform:uppercase; letter-spacing:0.16em;
+}
+.project .venue .note{ color:var(--meta); }
+.project .desc{ margin-top:0.7rem; font-size:0.9375rem; color:var(--mute); max-width:62ch; }
+.project .chips{ margin-top:0.9rem; }
+
+/* gallery: posters load, video bytes only when a clip is played */
+.gallery{
+  margin-top:1.4rem;
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(200px, 1fr));
+  gap:1.1rem 1.1rem;
+}
+.clip{ margin:0; }
+.clip video{
+  display:block; width:100%;
+  aspect-ratio:16 / 9;
+  object-fit:contain;
+  background:var(--paper);
+  border:1px solid var(--rule-soft);
+}
+.gallery[data-ratio="1"]   .clip video{ aspect-ratio:1 / 1; }
+.gallery[data-ratio="4-3"] .clip video{ aspect-ratio:4 / 3; }
+.clip figcaption{
+  margin-top:0.45rem;
+  font-size:0.6875rem; text-transform:uppercase; letter-spacing:0.14em;
+  color:var(--meta);
+}
 
 /* ---------- publications ---------- */
 .pub-list{ list-style:none; counter-reset:pub; }
@@ -448,16 +471,8 @@ footer .sec-body{ border-top:1px solid var(--paper); }
 /* ============================================================
    RESPONSIVE — the grid folds, the discipline stays
    ============================================================ */
-@media (max-width: 1100px){
-  /* three-up research columns get too narrow below ~1100px — step to two */
-  .areas{ grid-template-columns:repeat(2, 1fr); }
-}
-
 @media (max-width: 980px){
   .bio{ grid-column:4 / span 6; }
-  .areas{ grid-template-columns:1fr; row-gap:2.5rem; }
-  .area .idx{ margin-bottom:1.25rem; }
-  .area p{ max-width:56ch; }
 }
 
 @media (max-width: 760px){
@@ -486,6 +501,7 @@ footer .sec-body{ border-top:1px solid var(--paper); }
   .exp-list li{ grid-template-columns:5.5rem 1fr; column-gap:1.1rem; }
   .news-list li{ grid-template-columns:5.5rem 1fr; column-gap:1.1rem; }
   .pub{ grid-template-columns:2.5rem 1fr; column-gap:1.1rem; }
+  .gallery{ grid-template-columns:repeat(auto-fill, minmax(140px, 1fr)); gap:0.8rem; }
   .pub .pub-thumb{ width:5rem; margin-left:1rem; }
   .contact-list a{ grid-template-columns:6.5rem 1fr auto; column-gap:1.1rem; }
   .contact-list .v{ overflow-wrap:anywhere; }
