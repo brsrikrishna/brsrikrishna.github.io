@@ -166,10 +166,10 @@ h1.name{
   white-space:nowrap;
 }
 h1.name .l{ display:inline; }
-.social{ list-style:none; display:flex; align-items:center; gap:1.25rem; }
+.social{ list-style:none; display:flex; align-items:center; gap:1rem; }
 .social a{
   display:inline-flex; align-items:center; justify-content:center;
-  width:2.75rem; height:2.75rem;
+  width:2.6rem; height:2.6rem;
   color:var(--ink);
   transition:opacity .15s ease;
 }
@@ -455,6 +455,15 @@ h1.name .l{ display:inline; }
 /* ============================================================
    RESPONSIVE
    ============================================================ */
+@media (max-width: 1100px){
+  /* four marks still fit beside the name on a 1024px screen */
+  h1.name{ font-size:clamp(2rem, min(4.2vw, 7.2vh), 4.25rem); }
+  .name-row{ gap:0.75rem 1.25rem; }
+  .social{ gap:0.75rem; }
+  .social a{ width:2.25rem; height:2.25rem; }
+  .social svg{ width:1.75rem; height:1.75rem; }
+}
+
 @media (max-width: 900px){
   .hero-grid{ grid-template-columns:clamp(160px, 24%, 240px) minmax(0, 1fr); column-gap:2rem; }
   .avail{ display:block; }
