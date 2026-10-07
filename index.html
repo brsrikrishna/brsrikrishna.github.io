@@ -16,6 +16,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
+<script>document.documentElement.classList.add('js');</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -53,8 +54,8 @@
     <nav aria-label="Primary">
       <ul class="label" role="list">
         <li><a href="index.html" aria-current="page">About</a></li>
-        <li><a href="news.html">News</a></li>
         <li><a href="publications.html">Publications</a></li>
+        <li><a href="news.html">News</a></li>
         <li><a href="assets/resume.pdf" target="_blank" rel="noopener">Resume</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
@@ -119,15 +120,19 @@
       </div>
     </div>
 
+
+    <a class="scroll-cue" href="#research" aria-label="Scroll down to the research section">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v15"/><path d="M5 12l7 7 7-7"/></svg>
+    </a>
   </section>
 
-  <div class="wrap page-head sub" id="research">
+  <div class="wrap page-head sub reveal" id="research">
     <span class="idx" aria-hidden="true">02</span>
     <h2>Research</h2>
   </div>
 
   <section class="wrap content">
-            <article class="project">
+            <article class="project reveal">
               <span class="idx" aria-hidden="true">02.1</span>
               <h3>Dance2Hesitate: A Multi-Modal Dataset of Dancer-Taught Hesitancy for Understandable Robot Motion</h3>
               <p class="venue">Designing Transparent and Understandable Robots (D-TUR) Workshop at HRI · 2026</p>
@@ -145,7 +150,7 @@
               </div>
               <div class="galleries">
                 <p class="gallery-label">Robot, kinesthetic teaching on the Franka Emika Panda</p>
-                <div class="gallery">
+                <div class="gallery" data-cols="2">
                   <figure class="clip">
                     <video autoplay muted loop playsinline poster="assets/media/dance2hesitate/robot-reference.jpg" aria-label="Robot reach with no hesitancy">
                       <source src="assets/media/dance2hesitate/robot-reference.mp4" type="video/mp4">
@@ -171,64 +176,61 @@
                     <figcaption>Extreme hesitancy</figcaption>
                   </figure>
                 </div>
-<p class="gallery-label">Whole body, dancer motion capture</p>
-                <div class="gallery" data-ratio="4-3" data-cols="2">
+                <p class="gallery-label">Dancer motion capture, whole body and upper limb</p>
+                <div class="gallery" data-ratio="4-3" data-cols="4">
                   <figure class="clip">
                     <video autoplay muted loop playsinline poster="assets/media/dance2hesitate/whole-body-front.jpg" aria-label="Whole-body hesitant motion, front view">
                       <source src="assets/media/dance2hesitate/whole-body-front.mp4" type="video/mp4">
                     </video>
-                    <figcaption>Front</figcaption>
+                    <figcaption>Whole body, front</figcaption>
                   </figure>
                   <figure class="clip">
                     <video autoplay muted loop playsinline poster="assets/media/dance2hesitate/whole-body-side.jpg" aria-label="Whole-body hesitant motion, side view">
                       <source src="assets/media/dance2hesitate/whole-body-side.mp4" type="video/mp4">
                     </video>
-                    <figcaption>Side</figcaption>
+                    <figcaption>Whole body, side</figcaption>
                   </figure>
-                </div>
-<p class="gallery-label">Upper limb, dancer motion capture</p>
-                <div class="gallery" data-ratio="4-3" data-cols="3">
                   <figure class="clip">
                     <video autoplay muted loop playsinline poster="assets/media/dance2hesitate/limb-slight-front.jpg" aria-label="Upper limb, slight hesitancy, front view">
                       <source src="assets/media/dance2hesitate/limb-slight-front.mp4" type="video/mp4">
                     </video>
-                    <figcaption>Slight, front</figcaption>
+                    <figcaption>Upper limb, slight, front</figcaption>
                   </figure>
                   <figure class="clip">
                     <video autoplay muted loop playsinline poster="assets/media/dance2hesitate/limb-slight-side.jpg" aria-label="Upper limb, slight hesitancy, side view">
                       <source src="assets/media/dance2hesitate/limb-slight-side.mp4" type="video/mp4">
                     </video>
-                    <figcaption>Slight, side</figcaption>
+                    <figcaption>Upper limb, slight, side</figcaption>
                   </figure>
                   <figure class="clip">
                     <video autoplay muted loop playsinline poster="assets/media/dance2hesitate/limb-significant-front.jpg" aria-label="Upper limb, significant hesitancy, front view">
                       <source src="assets/media/dance2hesitate/limb-significant-front.mp4" type="video/mp4">
                     </video>
-                    <figcaption>Significant, front</figcaption>
+                    <figcaption>Upper limb, significant, front</figcaption>
                   </figure>
                   <figure class="clip">
                     <video autoplay muted loop playsinline poster="assets/media/dance2hesitate/limb-significant-side.jpg" aria-label="Upper limb, significant hesitancy, side view">
                       <source src="assets/media/dance2hesitate/limb-significant-side.mp4" type="video/mp4">
                     </video>
-                    <figcaption>Significant, side</figcaption>
+                    <figcaption>Upper limb, significant, side</figcaption>
                   </figure>
                   <figure class="clip">
                     <video autoplay muted loop playsinline poster="assets/media/dance2hesitate/limb-extreme-front.jpg" aria-label="Upper limb, extreme hesitancy, front view">
                       <source src="assets/media/dance2hesitate/limb-extreme-front.mp4" type="video/mp4">
                     </video>
-                    <figcaption>Extreme, front</figcaption>
+                    <figcaption>Upper limb, extreme, front</figcaption>
                   </figure>
                   <figure class="clip">
                     <video autoplay muted loop playsinline poster="assets/media/dance2hesitate/limb-extreme-side.jpg" aria-label="Upper limb, extreme hesitancy, side view">
                       <source src="assets/media/dance2hesitate/limb-extreme-side.mp4" type="video/mp4">
                     </video>
-                    <figcaption>Extreme, side</figcaption>
+                    <figcaption>Upper limb, extreme, side</figcaption>
                   </figure>
                 </div>
               </div>
             </article>
     
-            <article class="project">
+            <article class="project reveal">
               <span class="idx" aria-hidden="true">02.2</span>
               <h3>Employing Laban Shape for Generating Emotionally and Functionally Expressive Trajectories in Robotic Manipulators</h3>
               <p class="venue">IEEE International Conference on Robot and Human Interactive Communication (RO-MAN) · 2025</p>
@@ -283,7 +285,7 @@
               </div>
             </article>
     
-            <article class="project">
+            <article class="project reveal">
               <span class="idx" aria-hidden="true">02.3</span>
               <h3>BBoE: Leveraging a Bundle of Edges for Kinodynamic Bidirectional Motion Planning</h3>
               <p class="venue">IEEE Robotics and Automation Letters (RA-L) · 2026 <span class="note">· Under review</span></p>
@@ -357,7 +359,11 @@
 <script>
 (function () {
   var clips = document.querySelectorAll('video[autoplay]');
-  if (!('IntersectionObserver' in window)) { return; }
+  var reveals = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    reveals.forEach(function (r) { r.classList.add('in'); });
+    return;
+  }
   function keepPaused(v) { v.autoplay = false; if (!v.paused) { v.pause(); } }
   clips.forEach(function (v) {
     v.addEventListener('playing', function () { if (v.dataset.off === '1') { v.pause(); } });
@@ -375,6 +381,19 @@
     });
   }, { rootMargin: '240px 0px' });
   clips.forEach(function (v) { io.observe(v); });
+  /* revealing an element also reveals everything above it, so a fast jump
+     past the small heading can never leave it hidden */
+  var list = Array.prototype.slice.call(reveals);
+  var ro = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) { return; }
+      var k = list.indexOf(e.target);
+      list.slice(0, k + 1).forEach(function (r) { r.classList.add('in'); ro.unobserve(r); });
+    });
+  }, { threshold: 0.08 });
+  list.forEach(function (r) { ro.observe(r); });
+  /* safety net: whatever happens, nothing below the fold stays hidden for long */
+  setTimeout(function () { reveals.forEach(function (r) { r.classList.add('in'); }); }, 6000);
 })();
 </script>
 </body>
