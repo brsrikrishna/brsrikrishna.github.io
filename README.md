@@ -9,14 +9,14 @@ Live at <https://brsrikrishna.github.io>
 ## Structure
 
 ```
-index.html            About: name, focus, availability, bio, experience
+index.html            About: name, focus, availability, bio
 news.html             News
 research.html         One block per first-author paper: venue, description, PDF, video gallery
 publications.html     Full publication list with PDFs
 contact.html          Email, Scholar, GitHub, LinkedIn
 assets/style.css      All styling — strictly grayscale, Archivo via Google Fonts
 assets/photo.jpg      Portrait
-assets/cv.pdf         CV (the nav's "CV" tab opens this in a new tab)
+assets/resume.pdf     Resume (the nav's "Resume" tab opens this in a new tab)
 assets/papers/        Paper PDFs (images downsampled to 150 dpi)
 assets/media/<paper>/ Video clips as 960px H.264 MP4 + poster JPG
 .nojekyll             Serve files as-is (skip Jekyll processing)
@@ -36,7 +36,7 @@ you change the nav, change it in all five files.
   `ffmpeg -i in.mp4 -map 0:v:0 -an -vf "scale='trunc(min(960,iw)/2)*2':-2" -c:v libx264 -crf 26 -pix_fmt yuv420p -movflags +faststart out.mp4`
   and grab a poster with `ffmpeg -ss 1 -i out.mp4 -frames:v 1 out.jpg`. Keep every file
   well under GitHub's 100 MB limit.
-- **CV** — replace `assets/cv.pdf`.
+- **Resume** — replace `assets/resume.pdf`.
 - **Photo** — replace `assets/photo.jpg` (portrait or square; CSS crops to 3:4).
 
 ## Notes

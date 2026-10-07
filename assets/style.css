@@ -162,47 +162,24 @@ h1.name .l{ display:inline; }
   text-underline-offset:4px;
 }
 .avail a:hover, .bio a:hover, .exp-list a:hover{ text-decoration-thickness:2px; }
-.about-grid{
+/* hero grid: the portrait fills the left column and stretches to the height
+   of the three rows beside it, so the block is solid from edge to edge */
+.hero-grid{
   display:grid;
-  grid-template-columns:minmax(0, 1fr) clamp(220px, 21%, 300px);
-  gap:1.5rem 3rem;
-  align-items:start;
+  grid-template-columns:clamp(200px, 19%, 280px) minmax(0, 1fr);
+  column-gap:3rem;
+  align-items:stretch;
 }
-/* left column: bio, then experience beneath it, so the column fills the portrait's height */
-.about-main > .label{
-  display:block; color:var(--meta);
-  margin-top:1.4rem; padding-top:0.9rem; margin-bottom:0.55rem;
-  border-top:1px solid var(--rule);
-}
-/* the bio fills its column as two text columns: full width, readable measure */
-.bio{ columns:2; column-gap:2.75rem; }
-.bio p{ break-inside:avoid; }
-.bio p + p{ margin-top:1rem; }
+.hero-rows{ min-width:0; }
+.bio p{ font-size:1.0625rem; }
 .bio .aff{ font-weight:600; }
 
-.portrait{ margin:0; }
+.portrait{ margin:0; position:relative; min-height:200px; }
 .portrait-img{
-  display:block; width:100%;
-  aspect-ratio:3 / 4;
-  object-fit:cover;
-}
-
-.exp-list{ list-style:none; }
-.exp-list li{
-  display:grid;
-  grid-template-columns:7.5rem 1fr;   /* "2023–Present" */
-  column-gap:1.5rem;
-  padding-block:0.7rem;
-  border-bottom:1px solid var(--rule-soft);
-  font-size:0.9375rem;
-}
-.exp-list li:last-child{ border-bottom:0; }
-.exp-list .exp-when{
-  font-size:0.75rem; font-weight:500;
-  text-transform:uppercase; letter-spacing:0.16em;
-  font-variant-numeric:tabular-nums;
-  color:var(--mute);
-  padding-top:0.15rem;
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover; object-position:center top;
+  display:block;
 }
 
 /* ---------- news ---------- */
@@ -282,7 +259,17 @@ h1.name .l{ display:inline; }
   font-size:1rem; color:var(--mute);
 }
 .project .chips{ grid-area:chips; align-self:start; margin-top:0.9rem; }
-.project .gallery{ grid-area:gallery; }
+.project > .gallery, .project > .galleries{ grid-area:gallery; }
+
+/* grouped galleries (Dance2Hesitate): a small label above each group */
+.gallery-label{
+  margin-top:1.4rem; margin-bottom:0.6rem;
+  font-size:0.6875rem; font-weight:600;
+  text-transform:uppercase; letter-spacing:0.18em;
+  color:var(--ink);
+}
+.galleries .gallery{ margin-top:0; }
+.gallery[data-cols="2"]{ grid-template-columns:repeat(2, 1fr); }
 
 /* gallery: full container width, tiles as large as the row allows.
    Clips autoplay muted and loop. A small script pauses the ones that are
@@ -415,8 +402,7 @@ h1.name .l{ display:inline; }
    RESPONSIVE
    ============================================================ */
 @media (max-width: 900px){
-  .about-grid{ grid-template-columns:minmax(0, 1fr) clamp(180px, 30%, 260px); gap:1.25rem 2rem; }
-  .bio{ columns:1; }
+  .hero-grid{ grid-template-columns:clamp(160px, 24%, 240px) minmax(0, 1fr); column-gap:2rem; }
   .avail{ display:block; }
   .avail .chips{ margin-top:0.9rem; }
   .project{
@@ -434,17 +420,14 @@ h1.name .l{ display:inline; }
   .hero-meta .label{ display:block; }
   .hero-meta .label + .label{ margin-top:0.35rem; }
 
-  .about-grid{ grid-template-columns:1fr; }
-  .portrait{ max-width:280px; }
-  .bio p{ max-width:none; }
-
-  .exp-list li{ grid-template-columns:5.5rem 1fr; column-gap:1rem; }
+  .hero-grid{ grid-template-columns:1fr; }
+  .portrait{ order:2; max-width:280px; aspect-ratio:3 / 4; min-height:0; margin-top:1rem; }
   .news-list li{ grid-template-columns:5.5rem 1fr; column-gap:1rem; }
   .pub{ grid-template-columns:2.5rem 1fr; column-gap:1rem; }
   .contact-list a{ grid-template-columns:6.5rem 1fr auto; column-gap:1rem; }
   .contact-list .v{ overflow-wrap:anywhere; }
 
-  .gallery, .gallery[data-cols="3"]{
+  .gallery, .gallery[data-cols="2"], .gallery[data-cols="3"]{
     grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); gap:0.8rem;
   }
 }
@@ -457,7 +440,6 @@ h1.name .l{ display:inline; }
 
 @media (max-width: 430px){
   nav ul{ gap:0.5rem 1.1rem; }
-  .exp-list li{ grid-template-columns:1fr; row-gap:0.25rem; }
   .news-list li{ grid-template-columns:1fr; row-gap:0.25rem; }
   .contact-list a{ grid-template-columns:1fr auto; }
   .contact-list .k{ grid-column:1 / -1; margin-bottom:0.15rem; }
@@ -475,7 +457,7 @@ h1.name .l{ display:inline; }
   .skip, header, .site-foot{ display:none; }
   body{ font-size:11pt; }
   a{ text-decoration:none; }
-  .gallery{ display:none; }
+  .gallery, .gallery-label{ display:none; }
   .contact-block{ background:#fff; color:#000; }
   .contact-list{ border-top:1px solid #000; }
   .contact-list li{ border-bottom:1px solid #d8d8d8; }

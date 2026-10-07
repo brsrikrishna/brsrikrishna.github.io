@@ -32,7 +32,7 @@
         <li><a href="news.html">News</a></li>
         <li><a href="research.html" aria-current="page">Research</a></li>
         <li><a href="publications.html">Publications</a></li>
-        <li><a href="assets/cv.pdf" target="_blank" rel="noopener">CV</a></li>
+        <li><a href="assets/resume.pdf" target="_blank" rel="noopener">Resume</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
@@ -47,7 +47,7 @@
 
   <section class="wrap content">
             <article class="project">
-              <span class="idx" aria-hidden="true">02.2</span>
+              <span class="idx" aria-hidden="true">02.1</span>
               <h3>Dance2Hesitate: A Multi-Modal Dataset of Dancer-Taught Hesitancy for Understandable Robot Motion</h3>
               <p class="venue">Designing Transparent and Understandable Robots (D-TUR) Workshop at HRI · 2026</p>
               <p class="desc">
@@ -58,63 +58,97 @@
               </p>
               <div class="chips">
                 <a class="chip" href="assets/papers/dance2hesitate-dtur-hri-2026.pdf" aria-label="PDF: Dance2Hesitate">PDF</a>
+                <a class="chip" href="https://arxiv.org/abs/2603.10166" aria-label="arXiv: Dance2Hesitate">arXiv</a>
                 <a class="chip" href="https://brsrikrishna.github.io/Dance2Hesitate/" aria-label="Project page: Dance2Hesitate">Project</a>
                 <a class="chip" href="https://huggingface.co/datasets/brsrikrishna/Dance2Hesitate" aria-label="Dataset on Hugging Face: Dance2Hesitate">Data</a>
               </div>
-              <div class="gallery" data-ratio="4-3">
-                <figure class="clip">
-                  <video autoplay muted loop playsinline poster="assets/media/dance2hesitate/whole-body-front.jpg" aria-label="Whole-body hesitant motion, front view">
-                    <source src="assets/media/dance2hesitate/whole-body-front.mp4" type="video/mp4">
-                  </video>
-                  <figcaption>Whole body, front</figcaption>
-                </figure>
-                <figure class="clip">
-                  <video autoplay muted loop playsinline poster="assets/media/dance2hesitate/whole-body-side.jpg" aria-label="Whole-body hesitant motion, side view">
-                    <source src="assets/media/dance2hesitate/whole-body-side.mp4" type="video/mp4">
-                  </video>
-                  <figcaption>Whole body, side</figcaption>
-                </figure>
-                <figure class="clip">
-                  <video autoplay muted loop playsinline poster="assets/media/dance2hesitate/limb-slight-front.jpg" aria-label="Upper limb, slight hesitancy, front view">
-                    <source src="assets/media/dance2hesitate/limb-slight-front.mp4" type="video/mp4">
-                  </video>
-                  <figcaption>Limb, slight, front</figcaption>
-                </figure>
-                <figure class="clip">
-                  <video autoplay muted loop playsinline poster="assets/media/dance2hesitate/limb-slight-side.jpg" aria-label="Upper limb, slight hesitancy, side view">
-                    <source src="assets/media/dance2hesitate/limb-slight-side.mp4" type="video/mp4">
-                  </video>
-                  <figcaption>Limb, slight, side</figcaption>
-                </figure>
-                <figure class="clip">
-                  <video autoplay muted loop playsinline poster="assets/media/dance2hesitate/limb-significant-front.jpg" aria-label="Upper limb, significant hesitancy, front view">
-                    <source src="assets/media/dance2hesitate/limb-significant-front.mp4" type="video/mp4">
-                  </video>
-                  <figcaption>Limb, significant, front</figcaption>
-                </figure>
-                <figure class="clip">
-                  <video autoplay muted loop playsinline poster="assets/media/dance2hesitate/limb-significant-side.jpg" aria-label="Upper limb, significant hesitancy, side view">
-                    <source src="assets/media/dance2hesitate/limb-significant-side.mp4" type="video/mp4">
-                  </video>
-                  <figcaption>Limb, significant, side</figcaption>
-                </figure>
-                <figure class="clip">
-                  <video autoplay muted loop playsinline poster="assets/media/dance2hesitate/limb-extreme-front.jpg" aria-label="Upper limb, extreme hesitancy, front view">
-                    <source src="assets/media/dance2hesitate/limb-extreme-front.mp4" type="video/mp4">
-                  </video>
-                  <figcaption>Limb, extreme, front</figcaption>
-                </figure>
-                <figure class="clip">
-                  <video autoplay muted loop playsinline poster="assets/media/dance2hesitate/limb-extreme-side.jpg" aria-label="Upper limb, extreme hesitancy, side view">
-                    <source src="assets/media/dance2hesitate/limb-extreme-side.mp4" type="video/mp4">
-                  </video>
-                  <figcaption>Limb, extreme, side</figcaption>
-                </figure>
+              <div class="galleries">
+                <p class="gallery-label">Whole body, dancer motion capture</p>
+                <div class="gallery" data-ratio="4-3" data-cols="2">
+                  <figure class="clip">
+                    <video autoplay muted loop playsinline poster="assets/media/dance2hesitate/whole-body-front.jpg" aria-label="Whole-body hesitant motion, front view">
+                      <source src="assets/media/dance2hesitate/whole-body-front.mp4" type="video/mp4">
+                    </video>
+                    <figcaption>Front</figcaption>
+                  </figure>
+                  <figure class="clip">
+                    <video autoplay muted loop playsinline poster="assets/media/dance2hesitate/whole-body-side.jpg" aria-label="Whole-body hesitant motion, side view">
+                      <source src="assets/media/dance2hesitate/whole-body-side.mp4" type="video/mp4">
+                    </video>
+                    <figcaption>Side</figcaption>
+                  </figure>
+                </div>
+                <p class="gallery-label">Robot, kinesthetic teaching on the Franka Emika Panda</p>
+                <div class="gallery">
+                  <figure class="clip">
+                    <video autoplay muted loop playsinline poster="assets/media/dance2hesitate/robot-reference.jpg" aria-label="Robot reach with no hesitancy">
+                      <source src="assets/media/dance2hesitate/robot-reference.mp4" type="video/mp4">
+                    </video>
+                    <figcaption>Reference</figcaption>
+                  </figure>
+                  <figure class="clip">
+                    <video autoplay muted loop playsinline poster="assets/media/dance2hesitate/robot-slight.jpg" aria-label="Robot reach, slight hesitancy">
+                      <source src="assets/media/dance2hesitate/robot-slight.mp4" type="video/mp4">
+                    </video>
+                    <figcaption>Slight hesitancy</figcaption>
+                  </figure>
+                  <figure class="clip">
+                    <video autoplay muted loop playsinline poster="assets/media/dance2hesitate/robot-significant.jpg" aria-label="Robot reach, significant hesitancy">
+                      <source src="assets/media/dance2hesitate/robot-significant.mp4" type="video/mp4">
+                    </video>
+                    <figcaption>Significant hesitancy</figcaption>
+                  </figure>
+                  <figure class="clip">
+                    <video autoplay muted loop playsinline poster="assets/media/dance2hesitate/robot-extreme.jpg" aria-label="Robot reach, extreme hesitancy">
+                      <source src="assets/media/dance2hesitate/robot-extreme.mp4" type="video/mp4">
+                    </video>
+                    <figcaption>Extreme hesitancy</figcaption>
+                  </figure>
+                </div>
+                <p class="gallery-label">Upper limb, dancer motion capture</p>
+                <div class="gallery" data-ratio="4-3" data-cols="3">
+                  <figure class="clip">
+                    <video autoplay muted loop playsinline poster="assets/media/dance2hesitate/limb-slight-front.jpg" aria-label="Upper limb, slight hesitancy, front view">
+                      <source src="assets/media/dance2hesitate/limb-slight-front.mp4" type="video/mp4">
+                    </video>
+                    <figcaption>Slight, front</figcaption>
+                  </figure>
+                  <figure class="clip">
+                    <video autoplay muted loop playsinline poster="assets/media/dance2hesitate/limb-slight-side.jpg" aria-label="Upper limb, slight hesitancy, side view">
+                      <source src="assets/media/dance2hesitate/limb-slight-side.mp4" type="video/mp4">
+                    </video>
+                    <figcaption>Slight, side</figcaption>
+                  </figure>
+                  <figure class="clip">
+                    <video autoplay muted loop playsinline poster="assets/media/dance2hesitate/limb-significant-front.jpg" aria-label="Upper limb, significant hesitancy, front view">
+                      <source src="assets/media/dance2hesitate/limb-significant-front.mp4" type="video/mp4">
+                    </video>
+                    <figcaption>Significant, front</figcaption>
+                  </figure>
+                  <figure class="clip">
+                    <video autoplay muted loop playsinline poster="assets/media/dance2hesitate/limb-significant-side.jpg" aria-label="Upper limb, significant hesitancy, side view">
+                      <source src="assets/media/dance2hesitate/limb-significant-side.mp4" type="video/mp4">
+                    </video>
+                    <figcaption>Significant, side</figcaption>
+                  </figure>
+                  <figure class="clip">
+                    <video autoplay muted loop playsinline poster="assets/media/dance2hesitate/limb-extreme-front.jpg" aria-label="Upper limb, extreme hesitancy, front view">
+                      <source src="assets/media/dance2hesitate/limb-extreme-front.mp4" type="video/mp4">
+                    </video>
+                    <figcaption>Extreme, front</figcaption>
+                  </figure>
+                  <figure class="clip">
+                    <video autoplay muted loop playsinline poster="assets/media/dance2hesitate/limb-extreme-side.jpg" aria-label="Upper limb, extreme hesitancy, side view">
+                      <source src="assets/media/dance2hesitate/limb-extreme-side.mp4" type="video/mp4">
+                    </video>
+                    <figcaption>Extreme, side</figcaption>
+                  </figure>
+                </div>
               </div>
             </article>
     
             <article class="project">
-              <span class="idx" aria-hidden="true">02.3</span>
+              <span class="idx" aria-hidden="true">02.2</span>
               <h3>Employing Laban Shape for Generating Emotionally and Functionally Expressive Trajectories in Robotic Manipulators</h3>
               <p class="venue">IEEE International Conference on Robot and Human Interactive Communication (RO-MAN) · 2025</p>
               <p class="desc">
@@ -169,7 +203,7 @@
             </article>
     
             <article class="project">
-              <span class="idx" aria-hidden="true">02.4</span>
+              <span class="idx" aria-hidden="true">02.3</span>
               <h3>BBoE: Leveraging a Bundle of Edges for Kinodynamic Bidirectional Motion Planning</h3>
               <p class="venue">IEEE Robotics and Automation Letters (RA-L) · 2026 <span class="note">· Under review</span></p>
               <p class="desc">
@@ -178,10 +212,6 @@
                 spanning 3D to 6D state spaces, BBoE is the only planner to reach &ge;96% success on
                 every system, with the lowest planning time on three of the four.
               </p>
-              <div class="chips">
-                <a class="chip" href="assets/papers/bboe-ral-2026.pdf" aria-label="PDF: BBoE">PDF</a>
-                <a class="chip" href="https://arxiv.org/abs/2509.20333" aria-label="arXiv: BBoE">arXiv</a>
-              </div>
               <div class="gallery" data-ratio="1">
                 <figure class="clip">
                   <video autoplay muted loop playsinline poster="assets/media/bboe/full-run.jpg" aria-label="Full BBoE planning run">
