@@ -119,7 +119,7 @@ nav a[aria-current="page"]{ text-decoration-color:var(--ink); font-weight:600; }
 /* ---------- home / hero ---------- */
 /* the About block is the whole first screen; research sits below the fold */
 .hero{
-  padding-block:clamp(1.25rem, 2.5vw, 2rem) 1rem;
+  padding-block:clamp(1rem, 2vh, 2rem) 0.75rem;
   /* fill the first screen, but never stretch past 1400px on very tall displays */
   min-height:min(calc(100vh - var(--header-h)), 1400px);
   display:flex; flex-direction:column;
@@ -129,11 +129,11 @@ nav a[aria-current="page"]{ text-decoration-color:var(--ink); font-weight:600; }
 /* scroll cue: an arrow pinned to the bottom of the first screen */
 .scroll-cue{
   margin-top:auto; align-self:center;
-  padding:1.5rem 1rem 0.25rem;
+  padding:clamp(0.75rem, 1.6vh, 1.5rem) 1rem 0.25rem;
   color:var(--ink);
 }
 .scroll-cue svg{
-  width:2rem; height:2rem; display:block;
+  width:2.5rem; height:2.5rem; display:block;
   fill:none; stroke:currentColor; stroke-width:1.6;
   animation:cue-bounce 1.6s ease-in-out infinite;
 }
@@ -147,6 +147,7 @@ html.js .reveal.in{ opacity:1; transform:none; }
   display:flex; justify-content:space-between; gap:0.5rem 2rem; flex-wrap:wrap;
   padding-bottom:0.9rem; border-bottom:1px solid var(--rule);
 }
+.hero-meta .label{ font-size:0.8125rem; }
 .hero-meta .label:last-child{ color:var(--mute); margin-right:-0.22em; }
 
 /* name row: the name at a display size that sits with the rest of the page,
@@ -154,10 +155,10 @@ html.js .reveal.in{ opacity:1; transform:none; }
 .name-row{
   display:flex; align-items:center; justify-content:space-between;
   gap:0.75rem 2rem; flex-wrap:wrap;
-  padding-block:clamp(1.1rem, 2.5vw, 1.75rem) clamp(0.9rem, 2vw, 1.4rem);
+  padding-block:clamp(0.8rem, 2vh, 1.75rem) clamp(0.6rem, 1.6vh, 1.4rem);
 }
 h1.name{
-  font-size:clamp(1.75rem, 3.6vw, 3.25rem);
+  font-size:clamp(2rem, min(4.6vw, 7.2vh), 4.25rem);  /* scales with screen height too */
   font-weight:600;
   line-height:1;
   letter-spacing:-0.025em;
@@ -168,24 +169,24 @@ h1.name .l{ display:inline; }
 .social{ list-style:none; display:flex; align-items:center; gap:1.25rem; }
 .social a{
   display:inline-flex; align-items:center; justify-content:center;
-  width:2.25rem; height:2.25rem;
+  width:2.75rem; height:2.75rem;
   color:var(--ink);
   transition:opacity .15s ease;
 }
 .social a:hover{ opacity:0.5; }
-.social svg{ width:1.75rem; height:1.75rem; display:block; fill:currentColor; }
+.social svg{ width:2.125rem; height:2.125rem; display:block; fill:currentColor; }
 
 /* a row = small-caps label above full-width content, on a hairline */
 .row{
   border-top:1px solid var(--rule);
-  padding-block:0.9rem 1.4rem;
+  padding-block:clamp(0.7rem, 1.4vh, 1rem) clamp(0.9rem, 1.9vh, 1.4rem);
 }
-.row > .label{ display:block; color:var(--meta); margin-bottom:0.55rem; }
+.row > .label{ display:block; color:var(--meta); margin-bottom:0.7rem; font-size:0.8125rem; }
 
 .tagline{
-  font-size:clamp(1rem, 1.6vw, 1.25rem);
+  font-size:clamp(1.2rem, min(2.1vw, 3.3vh), 1.9rem);
   font-weight:500;
-  line-height:1.45;
+  line-height:1.4;
 }
 .tagline .sep{ color:var(--meta); padding-inline:0.25em; font-weight:400; }
 
@@ -194,6 +195,8 @@ h1.name .l{ display:inline; }
 .avail > .label{ grid-column:1 / -1; }
 .avail p{ grid-column:1; font-weight:500; }
 .avail .chips{ grid-column:2; margin-top:0; }
+.hero .avail p{ font-size:clamp(1.05rem, min(1.5vw, 2.4vh), 1.4rem); line-height:1.5; }
+.hero .chip{ font-size:0.8125rem; padding:0.45rem 0.9rem; }
 .avail a, .bio a, .exp-list a{
   text-decoration:underline solid var(--ink) 1px;
   text-underline-offset:4px;
@@ -202,13 +205,18 @@ h1.name .l{ display:inline; }
 /* hero grid: the portrait fills the left column and stretches to the height
    of the three rows beside it, so the block is solid from edge to edge */
 .hero-grid{
+  flex:1 1 auto;                       /* take the rest of the first screen */
   display:grid;
-  grid-template-columns:clamp(200px, 19%, 280px) minmax(0, 1fr);
+  grid-template-columns:clamp(220px, min(40vh, 32%), 520px) minmax(0, 1fr);
   column-gap:3rem;
   align-items:stretch;
 }
-.hero-rows{ min-width:0; }
-.bio p{ font-size:1.0625rem; }
+/* the three rows share the block's height as equal bands, content centred,
+   so the screen is filled with no gap left at the bottom */
+.hero-rows{ min-width:0; display:flex; flex-direction:column; }
+.hero-rows .row{ flex:1 1 0; display:flex; flex-direction:column; justify-content:center; }
+.hero-rows .avail{ display:grid; align-content:center; }
+.bio p{ font-size:clamp(1.05rem, min(1.6vw, 2.6vh), 1.5rem); line-height:1.5; }
 .bio .aff{ font-weight:600; }
 
 .portrait{ margin:0; position:relative; min-height:200px; }
@@ -468,7 +476,8 @@ h1.name .l{ display:inline; }
   .hero-meta .label{ display:block; }
   .hero-meta .label + .label{ margin-top:0.35rem; }
 
-  .hero-grid{ grid-template-columns:1fr; }
+  .hero-grid{ grid-template-columns:1fr; flex:0 0 auto; }
+  .hero-rows .row{ flex:0 0 auto; }
   .portrait{ order:2; max-width:280px; aspect-ratio:3 / 4; min-height:0; margin-top:1rem; }
   .news-list li{ grid-template-columns:5.5rem 1fr; column-gap:1rem; }
   .pub{ grid-template-columns:2.5rem 1fr; column-gap:1rem; row-gap:0.9rem; }
