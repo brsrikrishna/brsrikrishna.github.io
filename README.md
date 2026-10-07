@@ -9,26 +9,27 @@ Live at <https://brsrikrishna.github.io>
 ## Structure
 
 ```
-index.html            About: name, focus, availability, bio
+index.html            About: name with profile marks, focus, availability, bio, then the research section with videos
 news.html             News
-research.html         One block per first-author paper: venue, description, PDF, video gallery
+research.html         Redirects to index.html#research (the former Research tab)
 publications.html     Full publication list with PDFs
 contact.html          Email, Scholar, GitHub, LinkedIn
 assets/style.css      All styling — strictly grayscale, Archivo via Google Fonts
 assets/photo.jpg      Portrait
 assets/resume.pdf     Resume (the nav's "Resume" tab opens this in a new tab)
 assets/papers/        Paper PDFs (images downsampled to 150 dpi)
+assets/thumbs/        First figure of each paper, shown on the Publications page
 assets/media/<paper>/ Video clips as 960px H.264 MP4 + poster JPG
 .nojekyll             Serve files as-is (skip Jekyll processing)
 ```
 
 No build step, no JavaScript. Each page repeats the same header/nav/footer markup; when
-you change the nav, change it in all five files.
+you change the nav, change it in index, news, publications and contact.
 
 ## Editing
 
 - **News** — add an `<li>` at the top of `.news-list` in `news.html`.
-- **A new paper** — copy an existing `<article class="project">` in `research.html` and an
+- **A new paper** — copy an existing `<article class="project">` in `index.html` and an
   `<li class="pub">` in `publications.html`. Link chips are per-paper optional; never leave
   an `href="#"`.
 - **Videos** — the site serves 960px H.264 clips with a poster frame. Large originals live

@@ -107,11 +107,14 @@ nav a[aria-current="page"]{ text-decoration-color:var(--ink); font-weight:600; }
   font-variant-numeric:tabular-nums;
   color:var(--meta);
 }
-.page-head h1{
+.page-head h1, .page-head h2{
   font-size:clamp(1.5rem, 2.6vw, 2.25rem);
   font-weight:600; line-height:1.1; letter-spacing:-0.02em;
 }
+/* a section head that follows other content on the same page */
+.page-head.sub{ border-top:1px solid var(--rule); margin-top:1rem; }
 .content{ padding-block:0 3rem; }
+.content.avail{ padding-top:1.5rem; }
 
 /* ---------- home / hero ---------- */
 .hero{ padding-block:clamp(1.25rem, 2.5vw, 2rem) 2rem; }
@@ -122,21 +125,31 @@ nav a[aria-current="page"]{ text-decoration-color:var(--ink); font-weight:600; }
 }
 .hero-meta .label:last-child{ color:var(--mute); margin-right:-0.22em; }
 
-/* The full name on ONE line, sized to the container. Measured in the browser:
-   "SRIKRISHNA BANGALORE RAGHU" at 600 weight, -0.025em tracking is 15.97x the
-   font size wide in Archivo and 16.20x in the Helvetica fallback, so dividing
-   the available width by 16.3 fits both with a little slack. The width term is
-   the viewport minus padding and scrollbar, capped at the container maximum. */
+/* name row: the name at a display size that sits with the rest of the page,
+   one line, with the GitHub, Scholar and LinkedIn marks at the row's right end */
+.name-row{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:0.75rem 2rem; flex-wrap:wrap;
+  padding-block:clamp(1.1rem, 2.5vw, 1.75rem) clamp(0.9rem, 2vw, 1.4rem);
+}
 h1.name{
-  font-size:min(calc((100vw - 5rem) / 16.3), calc(1576px / 16.3));
+  font-size:clamp(1.75rem, 3.6vw, 3.25rem);
   font-weight:600;
   line-height:1;
   letter-spacing:-0.025em;
   text-transform:uppercase;
   white-space:nowrap;
-  padding-block:clamp(1.25rem, 3vw, 2.25rem) clamp(1rem, 2.5vw, 1.75rem);
 }
 h1.name .l{ display:inline; }
+.social{ list-style:none; display:flex; align-items:center; gap:1.25rem; }
+.social a{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:2.25rem; height:2.25rem;
+  color:var(--ink);
+  transition:opacity .15s ease;
+}
+.social a:hover{ opacity:0.5; }
+.social svg{ width:1.75rem; height:1.75rem; display:block; fill:currentColor; }
 
 /* a row = small-caps label above full-width content, on a hairline */
 .row{
@@ -301,10 +314,17 @@ h1.name .l{ display:inline; }
 .pub-list{ list-style:none; counter-reset:pub; }
 .pub{
   display:grid;
-  grid-template-columns:2.75rem 1fr;  /* two-digit counter */
+  grid-template-columns:2.75rem 220px minmax(0, 1fr);  /* counter, thumbnail, text */
   column-gap:1.5rem;
   padding-block:1.6rem;
   border-bottom:1px solid var(--rule-soft);
+}
+/* thumbnail: the paper's first figure at its own proportions, nothing cropped */
+.pub-thumb{
+  grid-column:2;
+  display:block; width:100%; height:auto;
+  border:1px solid var(--rule-soft);
+  background:var(--paper);
 }
 .pub::before{
   counter-increment:pub;
@@ -316,6 +336,7 @@ h1.name .l{ display:inline; }
 }
 /* ledger layout: title / authors / venue on the left, summary + links on the right */
 .pub > div{
+  grid-column:3;
   display:grid;
   grid-template-columns:minmax(0, 1.25fr) minmax(0, 1fr);
   grid-template-areas:
@@ -423,7 +444,9 @@ h1.name .l{ display:inline; }
   .hero-grid{ grid-template-columns:1fr; }
   .portrait{ order:2; max-width:280px; aspect-ratio:3 / 4; min-height:0; margin-top:1rem; }
   .news-list li{ grid-template-columns:5.5rem 1fr; column-gap:1rem; }
-  .pub{ grid-template-columns:2.5rem 1fr; column-gap:1rem; }
+  .pub{ grid-template-columns:2.5rem 1fr; column-gap:1rem; row-gap:0.9rem; }
+  .pub-thumb{ grid-column:2; max-width:280px; }
+  .pub > div{ grid-column:2; }
   .contact-list a{ grid-template-columns:6.5rem 1fr auto; column-gap:1rem; }
   .contact-list .v{ overflow-wrap:anywhere; }
 
@@ -432,9 +455,9 @@ h1.name .l{ display:inline; }
   }
 }
 
-@media (max-width: 480px){
-  /* one line would be under 20px on a phone, so let the name wrap here */
-  h1.name{ white-space:normal; font-size:clamp(1.9rem, 9.5vw, 2.6rem); line-height:0.95; }
+@media (max-width: 600px){
+  /* the one-line name no longer fits beside the marks, so let it wrap here */
+  h1.name{ white-space:normal; font-size:clamp(1.75rem, 8.5vw, 2.4rem); line-height:0.98; }
   h1.name .l{ display:block; }
 }
 
