@@ -231,7 +231,7 @@ h1.name .l{ display:inline; }
 .news-list{ list-style:none; }
 .news-list li{
   display:grid;
-  grid-template-columns:4.5rem 1fr;   /* "2026" / "Sep 2026" */
+  grid-template-columns:5.5rem 1fr;   /* "Oct 2026" with tracking */
   column-gap:1.5rem;
   padding-block:1.05rem;
   border-bottom:1px solid var(--rule-soft);
