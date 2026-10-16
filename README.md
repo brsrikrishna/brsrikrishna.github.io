@@ -23,7 +23,9 @@ assets/media/<paper>/ Video clips as 960px H.264 MP4 + poster JPG
 .nojekyll             Serve files as-is (skip Jekyll processing)
 ```
 
-No build step, no JavaScript. Each page repeats the same header/nav/footer markup; when
+No build step. The only scripts are small inline ones: the dark/light toggle (stored in
+localStorage, light by default) on every page, and on index.html the clip pause/reveal
+observer. Each page repeats the same header/nav/footer markup; when
 you change the nav, change it in index, news, publications and contact.
 
 ## Editing

@@ -22,6 +22,22 @@
   --size-mid:   clamp(1.0625rem, 1.6vw, 1.1875rem);
 }
 
+/* dark theme: the two inks swap, and the inverted contact block flips back.
+   Light is the default; the toggle in the nav sets data-theme on <html>. */
+html[data-theme="dark"]{
+  color-scheme:dark;
+  --ink:        #ffffff;
+  --paper:      #000000;
+  --mute:       #b5b5b5;   /* secondary text on black — 11:1  */
+  --meta:       #9a9a9a;   /* tertiary meta on black — 7.4:1  */
+  --rule:       #ffffff;
+  --rule-soft:  #3a3a3a;
+  --inv-mute:   #555555;
+  --inv-rule:   #d8d8d8;
+  --plate-ink:  #f2f2f2;
+  --plate-line: rgba(0,0,0,0.35);
+}
+
 *, *::before, *::after{ box-sizing:border-box; margin:0; padding:0; }
 
 html{
@@ -39,6 +55,7 @@ body{
   text-rendering:optimizeLegibility;
   min-height:100vh;
   display:flex; flex-direction:column;
+  transition:background-color .2s ease, color .2s ease;
 }
 main{ flex:1 0 auto; }
 
@@ -95,6 +112,18 @@ nav a{
 }
 nav a:hover{ text-decoration-color:var(--ink); }
 nav a[aria-current="page"]{ text-decoration-color:var(--ink); font-weight:600; }
+
+/* theme toggle: moon in light mode, sun in dark mode */
+.theme-toggle{
+  background:none; border:0; padding:0.2rem; margin:0; cursor:pointer;
+  color:inherit; display:inline-flex; align-items:center; vertical-align:middle;
+  transition:opacity .15s ease;
+}
+.theme-toggle:hover{ opacity:0.6; }
+.theme-toggle svg{ width:1.1rem; height:1.1rem; display:block; }
+.theme-toggle .sun{ display:none; }
+html[data-theme="dark"] .theme-toggle .sun{ display:block; }
+html[data-theme="dark"] .theme-toggle .moon{ display:none; }
 
 /* ---------- page head (sub-pages) ---------- */
 .page-head{
